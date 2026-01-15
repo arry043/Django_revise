@@ -23,4 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path("alok/", include('alok.urls')),
+
+
+    path("_reload_/", include("django_browser_reload.urls")),
 ]
