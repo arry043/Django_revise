@@ -22,7 +22,10 @@
             <p class="text-sm text-gray-500 mb-4">Type: <span class="font-semibold text-gray-700">{{ alok.type }}</span></p>
 
             <div class="mt-auto w-full flex justify-center gap-2">
-                <a href="#" class="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">
+                <a 
+                {% comment %} href={{alok.id}} {% endcomment %}
+                href={% url 'alok_detail' alok.id %}
+                class="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">
                     <button>{{alok.type}} - {{alok.id}}</button>
                     View</a>
                 <a href="#" class="px-3 py-1 border border-gray-200 rounded text-sm text-gray-700 hover:bg-gray-50">Message</a>
