@@ -1,11 +1,34 @@
 {% extends "layout.html" %} 
-
-
-{% block title %} Alok Page {% endblock %}
+{% block title %} Alok Page {% endblock %} 
 
 {% block main %}
-    <h1>
-        Hello This is Aloks page 
-        <h1>All types of Alok is available here</h1>
-    </h1>
-{% endblock  %}
+<div class="container mx-auto px-4 py-4">
+    <h1 class="text-2xl font-semibold mb-6">All types of Alok</h1>
+
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {% for alok in aloks %}
+        <div class="bg-gray-100 rounded-lg shadow hover:shadow-lg transition py-8 px-0  flex flex-col items-center text-center">
+            <div class="w-28 h-28 rounded-full overflow-hidden mb-4 flex items-center justify-center bg-gray-100">
+                {% if alok.image %}
+                    <img src="{{ alok.image.url }}" alt="{{ alok.name }}" class="object-cover w-full h-full border-spacing-1 shadow-lg"/>
+                {% else %}
+                    <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 14a4 4 0 10-8 0v1h8v-1zM12 6a4 4 0 100 8 4 4 0 000-8z"></path>
+                    </svg>
+                {% endif %}
+            </div>
+
+            <h3 class="text-lg font-medium text-gray-800">{{ alok.name }}</h3>
+            <p class="text-sm text-gray-500 mb-4">Type: <span class="font-semibold text-gray-700">{{ alok.type }}</span></p>
+
+            <div class="mt-auto w-full flex justify-center gap-2">
+                <a href="#" class="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">
+                    <button>{{alok.type}} - {{alok.id}}</button>
+                    View</a>
+                <a href="#" class="px-3 py-1 border border-gray-200 rounded text-sm text-gray-700 hover:bg-gray-50">Message</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

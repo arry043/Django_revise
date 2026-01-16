@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "layout.html" %} 
+
+
+{% block title %} About Page {% endblock %}
+
+{% block main %}
+    <h1 class="bg-orange-800 text-white">
+        Hello This is About page 
+    </h1>
+    <p
+    class="p-4"
+    >Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolor sint eius nulla natus consequatur impedit reprehenderit repellendus facilis sequi.</p>
+{% endblock  %}
