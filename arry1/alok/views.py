@@ -12,3 +12,4 @@ def all_alok(request):
 def alok_detail(request, id):
     alok = get_object_or_404(AlokVarity, pk=id)
     return render(request, 'alok/alok_detail.html', {'alok':alok})
+
