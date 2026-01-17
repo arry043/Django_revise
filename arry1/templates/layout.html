@@ -1,4 +1,17 @@
 {% load static tailwind_tags %} {% load static %}
+{% if messages %}
+<div class="fixed top-5 right-5 space-y-2 z-50">
+    {% for message in messages %}
+        <div class="px-5 py-3 rounded-lg shadow-md text-white
+            {% if message.tags == 'success' %} bg-green-500 {% endif %}
+            {% if message.tags == 'error' %} bg-red-500 {% endif %}
+            {% if message.tags == 'warning' %} bg-yellow-500 {% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +92,17 @@
                                 font-weight: bold;
                             "
                             >All Alok</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={% url 'add_alok' %}
+                            style="
+                                color: white;
+                                text-decoration: none;
+                                font-weight: bold;
+                            "
+                            >Add Alok</a
                         >
                     </li>
                 </ul>
